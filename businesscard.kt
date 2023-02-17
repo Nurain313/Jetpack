@@ -4,10 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -43,13 +41,30 @@ fun BusinessCard(){
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .border(1.dp, Color.Blue, RectangleShape)
+                .border(1.dp, Color.White, RectangleShape)
                 .fillMaxWidth()
                 .padding(20.dp)
         ) {
-            Text(text = "android", fontSize = 15.sp, color = Color.White)
-            Text(text = "Jomo Brain", color = Color.White)
-            Text(text = "Android Developer Card")
+            Text(
+                text = "Android",
+                fontSize = 11.sp,
+                color = Color(0XFF399212)
+            )
+            Text(
+                text = "Nourein Omari",
+                fontSize = 11.sp,
+                color = Color(0XFF399213)
+            )
+            Text(
+                text = "Best android Developer",
+                fontSize = 11.sp,
+                color = Color(0XFF399214)
+            )
+        }
+        Row {
+            Text("Phone no:",fontSize = 13.sp,color = Color.White)
+            Spacer(modifier = Modifier.width(20.dp))
+            Text(text = "+254711220439", color = Color.White)
         }
     }
 }
@@ -57,7 +72,5 @@ fun BusinessCard(){
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    LapTheme {
-
-    }
+    BusinessCard()
 }
