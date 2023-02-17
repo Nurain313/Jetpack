@@ -1,2 +1,2 @@
 - Business card
-<img src="/image.png">
+<img src="./Image.png">
