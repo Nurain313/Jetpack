@@ -9,7 +9,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -51,14 +51,28 @@ fun RolerDise (){
 
 @Composable
 fun RolerWithButton(modifier: Modifier=Modifier){
-Column(
+    var result by remember {
+        mutableStateOf(5)
+    }
+    val myimagepath = when(result) {
+        1 -> R.drawable.dice_1
+        2 -> R.drawable.dice_2
+        3 -> R.drawable.dice_3
+        4 -> R.drawable.dice_4
+        5 -> R.drawable.dice_5
+        else -> R.drawable.dice_6
+    }
+        Column(
     modifier = modifier,
     horizontalAlignment = Alignment.CenterHorizontally
 ) {
-    Button(onClick = { /*TODO*/ }) {
+    Button(onClick = {
+        println ("Clicked")
+        result = (1..6).random()
+    }) {
         Text(text = "Click me to roll")
     }
     Spacer(modifier = Modifier.height(20.dp))
-    Image(painter = painterResource(id = R.drawable.dice_6), contentDescription = null)
+    Image(painter = painterResource(id = myimagepath), contentDescription = null)
 }
 }
